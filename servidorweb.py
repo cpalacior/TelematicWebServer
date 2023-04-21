@@ -1,8 +1,8 @@
 import socket 
 import threading
 
-host = '127.0.0.1'
-port =  8888
+host = '172.31.93.217'
+port =  80
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.setsockopt(socket.SOL_SOCKET , socket.SO_REUSEADDR , 1)
