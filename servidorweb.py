@@ -1,8 +1,9 @@
 import socket 
 import threading
+import os
 
-host = '172.31.93.217'
-port =  80
+host = '127.0.0.1'
+port =  8000
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.setsockopt(socket.SOL_SOCKET , socket.SO_REUSEADDR , 1)
@@ -11,6 +12,7 @@ serversocket.listen(1)
 print('servidor en el puerto',port)
 
 while True:
+    print("-----------------------------------")
     connection , address = serversocket.accept()
     request = connection.recv(1024).decode('utf-8')
     print(request)
@@ -35,11 +37,7 @@ while True:
             with open("archivoDeNombres.txt", "w") as file:
                 file.write( datos + "\n"+ nombre_completo[0] + " " +nombre_completo[1])
                 file.close()
-    
-    if method == "GET" and request.find("direccionUrl") != -1:
-        url = request[request.find("direccionUrl")+13:len(request)]
-        #print("la direccion de la cosiaca es", url)
-        response = b"HEAD / HTTP/1.1\r\nHost: " + url.encode() + b"\r\n\r\n"
+        
 
     myfile = requesting_file.split('?')[0]
     myfile = myfile.lstrip('/')
@@ -50,6 +48,12 @@ while True:
     try:
         file = open(myfile , 'rb')
         response = file.read()
+        try:
+            file_lenght = os.stat(myfile)
+            file_lenght=file_lenght.st_size
+            response += bytes(file_lenght)
+        except Exception as error:
+            print(error)
         file.close()
 
         header = 'HTTP/1.1 200 OK\n'
@@ -62,8 +66,11 @@ while True:
             mimetype = 'application/pdf'
         elif(myfile.endswith('.docx')):
             mimetype = 'application/docx'
+        elif(myfile.endswith('.exe')):
+            mimetype = 'application/exe'
         else:
             mimetype = 'text/html'
+            
 
         header += 'Content-Type: '+str(mimetype)+'\n\n'
 
@@ -72,11 +79,6 @@ while True:
         header = 'HTTP/1.1 404 Not Found\n\n'
         response = '<html><body>Error 404: File not found</body></html>'.encode('utf-8')
     
-    if method == "GET" and request.find("direccionUrl") != -1:
-        url = request[request.find("direccionUrl")+13:len(request)]
-        #print("la direccion de la cosiaca es", url)
-        respuesta = b"HEAD / HTTP/1.1\r\nHost: " + url.encode() + b"\r\n\r\n"
-        response = '<html><body>Error 404: File not found</body></html>'.encode('utf-8')
 
     final_response = header.encode('utf-8')
     final_response += response
