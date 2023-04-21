@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    *{
+      border-radius: 10px;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Telematic Web Server</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <nav>
+        <div class="nav-wrapper" style="background-color: #4238ca;">
+          <a class="brand-logo center">Telematics Web Server</a>
+        </div>
+      </nav>
+      <div class="row" style="margin: 100px;">
+        <div class="col s12 m6; margin: 100px;" >
+            <div style="background-color: #fdefde; border-color: rgb(38, 13, 94); " >
+                <a class="waves-effect waves-light btn-small" id="InstallButton" style="margin-left: 50px; margin-top:50px"><i class="material-icons right">arrow_downward</i>Installar documento word</a>
+            
+            
+              <ul class="collection" style="margin: 50px; border: 2px solid #000000; margin: 50px;">
+                  <li class="collection-item avatar" style="align-items: center;background-color: #fdefde; border: 0px solid #000000; margin: 50px;">
+                    
+                    <span class="title">imagen de un paisaje</span>
+                    <a href="/img/paisaje.jpg">imagen de un paisaje</a>
+                  </li>
+
+                  <li class="collection-item avatar" style="align-items: center;background-color: #fdefde; border: 0px solid #000000; margin: 50px;">
+                      
+                      <span class="title">imagen de chocolate</span>
+                      <a href="/img/chocolate.jpg">imagen de chocolate</a>
+                    </li>
+
+                    <li class="collection-item avatar" style="align-items: center;background-color: #fdefde; border: 0px solid #000000; margin: 50px;">
+                      
+                      <span class="title">imagen de libros</span>
+                      <a href="/img/libro.jpg">imagen de libros</a>
+                    </li>
+
+                    <li class="collection-item avatar" style="align-items: center;background-color: #fdefde; border: 0px solid #000000; margin: 50px;">
+                      <span class="title">imagen de un gato</span>
+                      <a href="/img/gato.jpg">imagen de un gato</a>
+                    </li>
+                </ul>
+            
+              <ul>
+                  <li><a href="/pdf/Proyecto2.pdf" style="margin: 50px;">Descripcion del proyecto</a><br></li>
+              </ul>
+            
+              <form action="index.html" method="post">
+                  <fieldset style="background: #fdefde; border: 2px solid #000000; margin: 50px;">
+                      <legend>Customer Information</legend>
+                      <input type="text" name="firstname" placeholder="First name"><br /><br />
+                      <input type="text" name="lastname" placeholder="Last name"><br /><br />
+                  
+                      <button class="waves-effect waves-light btn-small" type="submit" ><i class="material-icons right">check</i>submit</button>
+                  </fieldset>
+              </form>
+
+              <form action="index.html" method="get">
+                <fieldset style="background: #f6f8ff; border: 2px solid #000000; margin: 50px;">
+                    <legend>Url</legend>
+                    <input type="text" name="direccionUrl" placeholder="url"><br /><br />
+                
+                    <button class="waves-effect waves-light btn-small" type="submit" ><i class="material-icons right">check</i>submit</button>
+                </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    <script>
+      var installButton = document.getElementById("InstallButton");
+      installButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        let xFiles = ["PlantillaEntrega02.docx"];
+        downloadFiles(xFiles);
+      });
+
+      // Download file function
+      let downloadFiles = function(files) {
+        for (let i = 0; i < files.length; i++) {
+          window.open(files[i], "", "width=200,height=100");
+        }
+      };
+    </script>
+    <script>
+
+    </script>
+  </body>
+</html>
