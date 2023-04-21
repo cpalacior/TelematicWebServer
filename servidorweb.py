@@ -10,7 +10,7 @@ serversocket.setsockopt(socket.SOL_SOCKET , socket.SO_REUSEADDR , 1)
 serversocket.bind((host , port))
 serversocket.listen(1)
 print('servidor en el puerto',port)
-serversocket.settimeout(5.0)
+serversocket.settimeout(60.0)
 while True:
     print("-----------------------------------")
     connection , address = serversocket.accept()
