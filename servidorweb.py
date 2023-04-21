@@ -10,7 +10,7 @@ serversocket.setsockopt(socket.SOL_SOCKET , socket.SO_REUSEADDR , 1)
 serversocket.bind((host , port))
 serversocket.listen(1)
 print('servidor en el puerto',port)
-
+serversocket(5.0)
 while True:
     print("-----------------------------------")
     connection , address = serversocket.accept()
@@ -38,6 +38,11 @@ while True:
                 file.write( datos + "\n"+ nombre_completo[0] + " " +nombre_completo[1])
                 file.close()
         
+    if method == "HEAD":
+        if os.path.isfile(os.getcwd() + requesting_file):
+            response = 'HTTP/1.1 200 OK\n'
+        else:
+            response = '<html><body>Error 404: File not found</body></html>'.encode('utf-8')
 
     myfile = requesting_file.split('?')[0]
     myfile = myfile.lstrip('/')
