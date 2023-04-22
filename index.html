@@ -29,29 +29,29 @@
       <div class="row" style="margin: 100px;">
         <div class="col s12 m6; margin: 100px;" >
             <div style="background-color: #fdefde; border-color: rgb(38, 13, 94); " >
-                <a class="waves-effect waves-light btn-small" id="InstallButton" style="margin-left: 50px; margin-top:50px"><i class="material-icons right">arrow_downward</i>Installar documento word</a>
-            
-            
-              <ul class="collection" style="margin: 50px; border: 2px solid #000000; margin: 50px;">
+                <a class="waves-effect waves-light btn-small" id="InstallButton" style="margin-left: 50px; margin-top:50px"><i class="material-icons right">arrow_downward</i>Descargar documento word</a>                        
+
+                <ul class="collection" style="margin: 50px; border: 2px solid #000000; margin: 50px;">
                   <li class="collection-item avatar" style="align-items: center;background-color: #fdefde; border: 0px solid #000000; margin: 50px;">
-                    
+                    <img src="/img/paisaje.jpg" alt="" class="circle">
                     <span class="title">imagen de un paisaje</span>
                     <a href="/img/paisaje.jpg">imagen de un paisaje</a>
                   </li>
 
                   <li class="collection-item avatar" style="align-items: center;background-color: #fdefde; border: 0px solid #000000; margin: 50px;">
-                      
+                    <img src="/img/chocolate.jpg" alt="" class="circle">
                       <span class="title">imagen de chocolate</span>
                       <a href="/img/chocolate.jpg">imagen de chocolate</a>
                     </li>
 
                     <li class="collection-item avatar" style="align-items: center;background-color: #fdefde; border: 0px solid #000000; margin: 50px;">
-                      
+                      <img src="/img/libro.jpg" alt="" class="circle">
                       <span class="title">imagen de libros</span>
                       <a href="/img/libro.jpg">imagen de libros</a>
                     </li>
 
                     <li class="collection-item avatar" style="align-items: center;background-color: #fdefde; border: 0px solid #000000; margin: 50px;">
+                      <img src="/img/gato.jpg" alt="" class="circle">
                       <span class="title">imagen de un gato</span>
                       <a href="/img/gato.jpg">imagen de un gato</a>
                     </li>
@@ -63,7 +63,7 @@
             
               <form action="index.html" method="post">
                   <fieldset style="background: #fdefde; border: 2px solid #000000; margin: 50px;">
-                      <legend>Customer Information</legend>
+                      <legend>Informacion del usuario</legend>
                       <input type="text" name="firstname" placeholder="First name"><br /><br />
                       <input type="text" name="lastname" placeholder="Last name"><br /><br />
                   
@@ -71,14 +71,22 @@
                   </fieldset>
               </form>
 
-              <form action="index.html" method="get">
-                <fieldset style="background: #f6f8ff; border: 2px solid #000000; margin: 50px;">
-                    <legend>Url</legend>
-                    <input type="text" name="direccionUrl" placeholder="url"><br /><br />
+              <form action="index.html" method="post">
+                <fieldset style="background: #fdefde; border: 2px solid #000000; margin: 50px;">
+                    <legend>Subir archivo</legend>
+                    <input type="file" name="archivo" style="border-radius: 0px;" enctype="multipart/form-data"><br /><br />
                 
                     <button class="waves-effect waves-light btn-small" type="submit" ><i class="material-icons right">check</i>submit</button>
                 </fieldset>
             </form>
+            <form action="index.html" method="get">
+              <fieldset style="background: #fdefde; border: 2px solid #000000; margin: 50px;">
+                  <legend>buscar url</legend>
+                  <input type="text" name="link_url" style="border-radius: 0px;" ><br /><br />
+              
+                  <button class="waves-effect waves-light btn-small" type="submit" ><i class="material-icons right">check</i>submit</button>
+              </fieldset>
+          </form>
           </div>
         </div>
       </div>
